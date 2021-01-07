@@ -1,2 +1,2 @@
 # jsinput
-Last commit 78e5a86
+Last commit 6f3996a
