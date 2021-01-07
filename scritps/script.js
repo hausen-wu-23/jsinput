@@ -8,6 +8,6 @@ function myClick () {
   var color = document.getElementById('color').value;
   console.log(name, color);
   myDiv.innerHTML = "\n";
-  myDiv.innerHTML += "\t\t<h1>Hello, " + name + ", enjoy your colour!</h1>\n";
+  myDiv.innerHTML += "\t\t<h1><mark>Hello, " + name + ", enjoy your colour!</mark></h1>\n";
   main.style.backgroundColor = color;
 }
