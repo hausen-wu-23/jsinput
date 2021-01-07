@@ -9,12 +9,12 @@ function myClick () {
   let checked = document.getElementById('check').checked;
   console.log(name, color);
   myDiv.innerHTML = "\n";
-  myDiv.innerHTML += "\t\t<h1><mark>Hello, " + name + ", enjoy your colour!</mark></h1>\n";
+  if (name)
+    myDiv.innerHTML += "\t\t<h1><mark>Hello, " + name + ", enjoy your colour!</mark></h1>\n";
+  else
+  myDiv.innerHTML += "\t\t<h1><mark>You didnt enter your name, but still, enjoy your colour!</mark></h1>\n";
+
   main.style.backgroundColor = color;
-  if (checked){
-    myDiv.innerHTML += "\t\t<h1><mark>checked</mark></h1>\n";
-  }
-  else{
-    myDiv.innerHTML += "\t\t<h1><mark>Not checked</mark></h1>\n";
-  }
+  myDiv.innerHTML += "\t\t<h1><mark>" + (checked ? "Agreed to tos :D" : "You disagreed to the tos :◖") + "</mark></h1>\n";
+  
 }
