@@ -1,32 +1,34 @@
 const myDiv = document.getElementById('myDiv');
 const main = document.getElementById('bg');
 
-console.log(myDiv);
 
-console.log(localStorage.getItem("data"));
-var last = JSON.parse(localStorage.getItem("data"));
+var sessions = localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")) : null;
 
-if (last) {
-  var user_data = {
-    'user_name': last.user_name,
-    'color': last.color,
-    'checked': last.checked,
-    'pizza': last.pizza,
-  };
-  myDiv.innerHTML += '\t\t<h1>' + ((user_data.user_name) ? ('Last time you said your name was ' + user_data.user_name) : 'You didn\'t tell us your name') + '. Your favourite colour is ' + user_data.color + (user_data.checked ? '. You agreed our tos. ' : '. You did not agree our tos. ') + (user_data.pizza ? 'You liked pizza.' : 'You are a monster!<h1>\n');
+if (sessions) {
+  sessions.forEach((element, index) => {
+    let user_data = {
+      'user_name': element.user_name,
+      'color': element.color,
+      'checked': element.checked,
+      'pizza': element.pizza,
+    };
+    myDiv.innerHTML += '\t\t<h1>Session ' + (index + 1) + ': </h1> \n';
+    let user_message = '';
+    user_message += '\t\t<h2>' + ((user_data.user_name) ? ('Last time you said your name was ' + user_data.user_name) : 'You didn\'t tell us your name');
+    user_message += '. Your favourite colour is ' + user_data.color;
+    user_message += user_data.checked ? '. You agreed our tos. ' : '. You did not agree our tos. ' 
+    user_message += user_data.pizza ? 'You liked pizza.' : 'You are a monster!</h2>\n';
+    myDiv.innerHTML += user_message;
+  });
 }
-else{
-  var user_data = {
+
+function myClick() {
+  let user_data = {
     'user_name': null,
     'color': null,
     'checked': null,
     'pizza': null,
   };
-}
-
-console.log(user_data);
-
-function myClick() {
   user_data.user_name = document.getElementById('name').value;
   user_data.color = document.getElementById('color').value;
   user_data.checked = document.getElementById('check').checked;
@@ -50,7 +52,9 @@ function myClick() {
     myDiv.innerHTML += '\t\t<h1><mark>You like pizza!</mark></h1>\n';
   else
     myDiv.innerHTML += '\t\t<h1><mark>You monster!</mark></h1>\n';
-
-  console.log(JSON.stringify(user_data));
-  localStorage.setItem("data", JSON.stringify(user_data));
+  if (sessions)
+    sessions.push(user_data);
+  else
+    sessions = [user_data];
+  localStorage.setItem('data', JSON.stringify(sessions));
 }
