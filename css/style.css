@@ -1,0 +1,24 @@
+@keyframes large {
+    from {width: 200px; height: 15px;font-size: 12px;}
+    to   {width: 400px; height: 30px;font-size: 25px;}
+}
+@keyframes shrink {
+    from {width: 400px; height: 30px;font-size: 25px;}
+    to   {width: 200px; height: 15px;font-size: 12px;}
+}
+
+#name {
+    width: 200px;
+    height: 15px;
+}
+
+.expand{
+    animation: large;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+.shrink{
+    animation: shrink;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}

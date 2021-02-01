@@ -3,27 +3,28 @@
   <head>
     <title>Javascript Demo</title>
     <meta charset="utf-8" />
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
     <script defer src="./scritps/script.js"></script>
   </head>
   <body id="bg">
     <h1> Hi </h1>
     <div id="myDiv">
       <p>
-        <label for='name'>Enter your name:</label>
-        <input id='name' name='name' type='text' />
+        <label for="name">Enter your name:</label>
+        <input id="name" name="name" type="text" onfocus="textFocus(this.id)" onblur="textBlur(this.id)" />
         <br />
-        <label for='color'>What's your favourite color:</label>
-        <input id='color' name='color' type='color' />
+        <label for="color">What's your favourite color:</label>
+        <input id="color" name="color" type="color" />
         <br />
-        <label for='check'>Agree to term of service:</label>
-        <input id='check' name='check' type='checkbox' />
+        <label for="check">Agree to term of service:</label>
+        <input id="check" name="check" type="checkbox" />
         <br />
-        <label for='choose1'>I like pizza</label>
-        <input id='choose1' name='choose' type='radio' />
-        <label for='choose2'>I don't like pizza</label>
-        <input id='choose2' name='choose' type='radio' />
+        <label for="choose1">I like pizza</label>
+        <input id="choose1" name="choose" type="radio" />
+        <label for="choose2">I don't like pizza</label>
+        <input id="choose2" name="choose" type="radio" />
       </p>
-      <button onclick='myClick()'>Submit</button>
+      <button onclick="myClick()">Submit</button>
     </div>
   </body>
 </html>
